@@ -1,0 +1,36 @@
+t = %w[text/css text/html application/javascript]
+\
+ACCEPT:         <%= @request.accept %>
+SCHEME:         <%= @request.scheme %>
+SCRIPT NAME:    <%= @request.script_name %>
+PATH INFO:      <%= @request.path_info %>
+PORT:           <%= @request.port %>
+REQUEST METHOD: <%= @request.request_method %>
+QUERY STRING:   <%= @request.query_string %>
+CONTENT LENGTH: <%= @request.content_length %>
+MEDIA TYPE:     <%= @request.media_type %>
+HOST:           <%= @request.host %>
+FORM DATA?:     <%= @request.form_data? %>
+REFERRER:       <%= @request.referrer || "-" %>
+USER_AGENT:     <%= @request.user_agent %>
+COOKIES:        <%= @request.cookies %>
+XHR?:           <%= @request.xhr? %>
+URL:            <%= @request.url %>
+PATH:           <%= @request.path %>
+IP:             <%= @request.ip %>
+SECURE:         <%= @request.secure? %>
+FORWARDED:      <%= @request.forwarded? %>
+
+\
+-------
+PARAMS
+<% @request.params.keys.each do |k| %>
+<%= @request.params[k] %>
+<% end %>
+-------
+ENV 
+<%= @request.env %>
+\
+-----
+BODY
+<%= request.body.read %>
